@@ -47,6 +47,13 @@
 				<artifactId>mysql-connector-java</artifactId>
 				<version>5.1.37</version>
 			</dependency>
+
+			<!--添加公共模块server-->
+			<dependency>
+				<groupId>com.course</groupId>
+				<artifactId>server</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
