@@ -125,9 +125,6 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <select id="list" resultType="com.course.server.domain.Test">
-    select  id, name from test
-  </select>
   <update id="updateByExampleSelective" parameterType="map">
     update test
     <set>
