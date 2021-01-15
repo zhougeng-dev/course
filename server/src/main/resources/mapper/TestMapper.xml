@@ -64,7 +64,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name
+    id, `name`
   </sql>
   <select id="selectByExample" parameterType="com.course.server.domain.TestExample" resultMap="BaseResultMap">
     select
@@ -97,7 +97,7 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.course.server.domain.Test">
-    insert into test (id, name)
+    insert into test (id, `name`)
     values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.course.server.domain.Test">
@@ -107,7 +107,7 @@
         id,
       </if>
       <if test="name != null">
-        name,
+        `name`,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -125,6 +125,9 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+  <select id="list" resultType="com.course.server.domain.Test">
+    select  id, name from test
+  </select>
   <update id="updateByExampleSelective" parameterType="map">
     update test
     <set>
@@ -132,7 +135,7 @@
         id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.name != null">
-        name = #{record.name,jdbcType=VARCHAR},
+        `name` = #{record.name,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -142,7 +145,7 @@
   <update id="updateByExample" parameterType="map">
     update test
     set id = #{record.id,jdbcType=VARCHAR},
-      name = #{record.name,jdbcType=VARCHAR}
+      `name` = #{record.name,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -151,17 +154,14 @@
     update test
     <set>
       <if test="name != null">
-        name = #{name,jdbcType=VARCHAR},
+        `name` = #{name,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.course.server.domain.Test">
     update test
-    set name = #{name,jdbcType=VARCHAR}
+    set `name` = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
-    <select id="list" resultType="com.course.server.domain.Test">
-        select 'id','name' from test;
-    </select>
 </mapper>

@@ -18,6 +18,7 @@ public interface TestMapper {
 
     List<Test> selectByExample(TestExample example);
     List<Test> list();
+
     Test selectByPrimaryKey(String id);
 
     int updateByExampleSelective(@Param("record") Test record, @Param("example") TestExample example);
