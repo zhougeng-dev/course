@@ -975,6 +975,11 @@
   </div>
 </template>
 <script>
-    $('body').remove('login-layout light-login');
-    $('body').attr('class', 'no-skin');
+    export default {
+      name:"admin",
+      mounted:function () {
+        $("body").remove("login-layout light-login");
+        $("body").attr("class", "no-skin");
+      }
+    }
 </script>
