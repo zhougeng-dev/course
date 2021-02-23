@@ -75,10 +75,11 @@
 <script>
 
   export default {
-    name: 'login',
+    name: "login",
     mounted:function() {
-      $('body').remove('no-skin');
-      $('body').attr('class', 'login-layout light-login');
+      $("body").remove("no-skin");
+      $("body").attr("class", "login-layout light-login");
+      console.log("login");
     },
     methods:{
       login () {
