@@ -416,7 +416,7 @@
         <div class="footer-inner">
           <div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">靠谱青年</span>
+							<span class="blue bolder">靠谱</span>
 							在线课程 &copy; 2013-2021
 						</span>
 
