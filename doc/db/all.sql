@@ -5,6 +5,12 @@ CREATE TABLE `chapter` (
                            `name` varchar(50) DEFAULT NULL,
                            PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+insert into `chapter` (id,course_id,name) values('000000','000000','大章一');
+insert into `chapter` (id,course_id,name) values('000001','000001','大章二');
+
+
+
+
 
 DROP TABLE IF EXISTS `test`;
 CREATE TABLE `test` (
