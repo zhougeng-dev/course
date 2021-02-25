@@ -971,3 +971,23 @@
   </tbody>
 </table>
 </template>
+
+<script>
+  export default {
+    name: "chapter",
+    mounted:function() {
+      let _this = this;
+      _this.list();
+      //sidebar激活样式方法
+      //this.$parent.activeSidebar("business-chapters-sidebar");
+    },
+    methods:{
+      list(){
+        let _this = this;
+        -this.$ajax.get('http://127.0.0.1:9002/business/admin/chapter/list').then((response)=>{
+            console.log("查询大章列表接口：", response);
+        })
+      }
+    }
+  }
+</script>
