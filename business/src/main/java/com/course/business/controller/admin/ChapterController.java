@@ -1,6 +1,8 @@
 package com.course.business.controller.admin;
+import com.course.server.dto.ChapterDto;
 import com.course.server.dto.PageDto;
 import com.course.server.service.ChapterService;
+import com.course.server.util.UuidUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,5 +23,12 @@ public class ChapterController {
         //LOG.info("pageDto: {}", pageDto);
         chapterService.list(pageDto);
         return pageDto;
+    }
+    @RequestMapping("/save")
+    private ChapterDto save(@RequestBody ChapterDto chapterDto){
+        LOG.info("chapterDto: {}", chapterDto);
+        chapterDto.setId(UuidUtil.getShortUuid());
+        chapterService.save(chapterDto);
+        return chapterDto;
     }
 }
