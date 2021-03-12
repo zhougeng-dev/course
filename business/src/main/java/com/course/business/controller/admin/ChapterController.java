@@ -1,6 +1,7 @@
 package com.course.business.controller.admin;
 import com.course.server.dto.ChapterDto;
 import com.course.server.dto.PageDto;
+import com.course.server.dto.ResponseDto;
 import com.course.server.service.ChapterService;
 import com.course.server.util.UuidUtil;
 import org.slf4j.Logger;
@@ -19,16 +20,18 @@ public class ChapterController {
     @Resource
     private ChapterService chapterService;
     @RequestMapping("/list")
-    private PageDto list(@RequestBody PageDto pageDto){
-        //LOG.info("pageDto: {}", pageDto);
+    private ResponseDto list(@RequestBody PageDto pageDto){
+        ResponseDto responseDto = new ResponseDto();
         chapterService.list(pageDto);
-        return pageDto;
+        responseDto.setContent(pageDto);
+        return responseDto;
     }
     @RequestMapping("/save")
-    private ChapterDto save(@RequestBody ChapterDto chapterDto){
-        LOG.info("chapterDto: {}", chapterDto);
+    private ResponseDto save(@RequestBody ChapterDto chapterDto){
+        ResponseDto responseDto = new ResponseDto();
         chapterDto.setId(UuidUtil.getShortUuid());
         chapterService.save(chapterDto);
-        return chapterDto;
+        responseDto.setContent(chapterDto);
+        return responseDto;
     }
 }
