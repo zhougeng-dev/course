@@ -49,6 +49,13 @@ public class ChapterService {
     }
 
     /**
+     * 新增
+     */
+    public void delete(String  id) {
+        chapterMapper.deleteByPrimaryKey(id);
+    }
+
+    /**
      * 更新
      */
     private void update(Chapter chapter) {
