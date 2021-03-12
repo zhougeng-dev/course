@@ -29,7 +29,6 @@ public class ChapterController {
     @RequestMapping("/save")
     private ResponseDto save(@RequestBody ChapterDto chapterDto){
         ResponseDto responseDto = new ResponseDto();
-        chapterDto.setId(UuidUtil.getShortUuid());
         chapterService.save(chapterDto);
         responseDto.setContent(chapterDto);
         return responseDto;

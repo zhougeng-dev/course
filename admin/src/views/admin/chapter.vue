@@ -22,7 +22,6 @@
     <th>操作</th>
   </tr>
   </thead>
-  
   <tbody>
   <tr v-for="chapter in chapters">
     
@@ -31,23 +30,13 @@
     <td>{{chapter.courseId}}</td>
     <td>
       <div class="hidden-sm hidden-xs btn-group">
-        <button class="btn btn-xs btn-success">
-          <i class="ace-icon fa fa-check bigger-120"></i>
-        </button>
-      
-        <button class="btn btn-xs btn-info">
+        <button v-on:click="edit(chapter)" class="btn btn-xs btn-info">
           <i class="ace-icon fa fa-pencil bigger-120"></i>
         </button>
-      
         <button class="btn btn-xs btn-danger">
           <i class="ace-icon fa fa-trash-o bigger-120"></i>
         </button>
-      
-        <button class="btn btn-xs btn-warning">
-          <i class="ace-icon fa fa-flag bigger-120"></i>
-        </button>
       </div>
-    
       <div class="hidden-md hidden-lg">
         <div class="inline pos-rel">
           <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown" data-position="auto">
@@ -62,7 +51,6 @@
                                 </span>
               </a>
             </li>
-          
             <li>
               <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
                                 <span class="green">
@@ -70,7 +58,6 @@
                                 </span>
               </a>
             </li>
-          
             <li>
               <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
                                 <span class="red">
@@ -142,6 +129,16 @@
        */
       add() {
         let _this = this;
+        _this.chapter = {};
+        $("#form-modal").modal("show");
+      },
+      /**
+       * 点击【编辑】
+       */
+      edit(chapter) {
+        let _this = this;
+        //表单数据绑定，如果编辑页面和表单中的页面数据进行绑定，那么在编辑页面操作的同时，表单页面的字段也会发生变化
+        _this.chapter = $.extend({},chapter);
         $("#form-modal").modal("show");
       },
       /**
