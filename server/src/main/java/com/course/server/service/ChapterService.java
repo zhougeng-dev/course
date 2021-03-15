@@ -49,7 +49,7 @@ public class ChapterService {
     }
 
     /**
-     * 新增
+     * 删除
      */
     public void delete(String  id) {
         chapterMapper.deleteByPrimaryKey(id);
