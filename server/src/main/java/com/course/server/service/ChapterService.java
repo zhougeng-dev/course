@@ -4,6 +4,7 @@ import com.course.server.domain.ChapterExample;
 import com.course.server.dto.ChapterDto;
 import com.course.server.dto.PageDto;
 import com.course.server.mapper.ChapterMapper;
+import com.course.server.util.CopyUtil;
 import com.course.server.util.UuidUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -11,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

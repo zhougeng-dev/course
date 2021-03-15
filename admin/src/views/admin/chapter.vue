@@ -184,6 +184,8 @@
               $("#form-modal").modal("hide");
               _this.list(1);
               Toast.success("保存成功");
+            }else{
+              Toast.warning(resp.message);
             }
         })
       },
@@ -206,30 +208,6 @@
                 }
               })
         });
-        
-          // Swal.fire({
-          //   title: '确认要删除吗?',
-          //   text: "删除后不可恢复，确认要删除吗？",
-          //   icon: 'warning',
-          //   showCancelButton: true,
-          //   confirmButtonColor: '#3085d6',
-          //   cancelButtonColor: '#d33',
-          //   confirmButtonText: '确认'
-          // }).then((result) => {
-          //   if (result.value) {
-          //     Loading.show();
-          //     _this.$ajax.delete('http://127.0.0.1:9000/business/admin/chapter/delete/'+id)
-          //       .then((response)=>{
-          //         Loading.hide();
-          //         console.log("删除大章列表接口：", response);
-          //         let resp = response.data;
-          //         if(resp.success){
-          //           _this.list(1);
-          //           Toast.success("删除成功！");
-          //         }
-          //       })
-          //   }
-          // })
       }
     }
   }
