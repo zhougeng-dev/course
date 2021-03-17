@@ -1,10 +1,10 @@
 package com.course.business.controller.admin;
+import com.course.business.config.BusinessApplication;
+import com.course.server.config.LogAspect;
 import com.course.server.dto.ChapterDto;
 import com.course.server.dto.PageDto;
 import com.course.server.dto.ResponseDto;
-import com.course.server.exception.ValidatorException;
 import com.course.server.service.ChapterService;
-import com.course.server.util.UuidUtil;
 import com.course.server.util.ValidatorUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +16,8 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/admin/chapter")
 public class ChapterController {
-    private static final Logger LOG = LoggerFactory.getLogger(ChapterController.class);
+    private static final Logger LOG =  LoggerFactory.getLogger(ChapterController.class);
+    public static final String BUSSINESS_NAME = "大章";
     @Resource
     private ChapterService chapterService;
     @PostMapping("/list")
@@ -31,7 +32,6 @@ public class ChapterController {
         ValidatorUtil.require(chapterDto.getName(), "名称");
         ValidatorUtil.require(chapterDto.getCourseId(), "课程ID");
         ValidatorUtil.length(chapterDto.getCourseId(), "课程ID", 1, 8);
-
         ResponseDto responseDto = new ResponseDto();
         chapterService.save(chapterDto);
         responseDto.setContent(chapterDto);
