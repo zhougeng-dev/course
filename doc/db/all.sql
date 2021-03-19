@@ -1,3 +1,4 @@
+-- 大章
 DROP TABLE IF EXISTS `chapter`;
 CREATE TABLE `chapter` (
                            `id` char(8) NOT NULL,
@@ -20,11 +21,29 @@ insert into `chapter` (id,course_id,name) values('000012','000012','大章12');
 insert into `chapter` (id,course_id,name) values('000013','000013','大章13');
 insert into `chapter` (id,course_id,name) values('000014','000014','大章14');
 
+# 小节
+DROP TABLE IF EXISTS `section`;
+CREATE TABLE `section` (
+                           `id` char(8) NOT NULL,
+                           `title` varchar(50) NOT NULL,
+                           `course_id` char(8) DEFAULT NULL,
+                           `chapter_id` char(8) DEFAULT NULL,
+                           `video` varchar(200) DEFAULT NULL,
+                           `time` int(11) DEFAULT NULL,
+                           `charge` char(1) DEFAULT NULL,
+                           `sort` int(11) DEFAULT NULL,
+                           `created_at` datetime DEFAULT NULL,
+                           `updated_at` datetime DEFAULT NULL,
+                           PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-SELECT * FROM  chapter;
+alter table `section` add column (`vod` char(32) comment 'vod|阿里云vod');
+
+insert into `section` (id, title, course_id, chapter_id, video, time, charge, sort, created_at, updated_at)
+values ('00000001', '测试小节01', '00000001', '00000000', '', 500, 'f', 1, now(), now());
 
 
-
+# 测试
 DROP TABLE IF EXISTS `test`;
 CREATE TABLE `test` (
                         `id` varchar(10) NOT NULL,
