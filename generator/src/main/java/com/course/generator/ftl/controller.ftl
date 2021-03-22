@@ -1,11 +1,8 @@
-package com.course.business.controller.admin;
-import com.course.business.config.BusinessApplication;
-import com.course.server.config.LogAspect;
+package com.course.${module}.controller.admin;
 import com.course.server.dto.${Domain}Dto;
 import com.course.server.dto.PageDto;
 import com.course.server.dto.ResponseDto;
 import com.course.server.service.${Domain}Service;
-import com.course.server.util.ValidatorUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +14,7 @@ import javax.annotation.Resource;
 @RequestMapping("/admin/${domain}")
 public class ${Domain}Controller {
     private static final Logger LOG =  LoggerFactory.getLogger(${Domain}Controller.class);
-    public static final String BUSSINESS_NAME = "大章";
+    public static final String BUSSINESS_NAME = "${tableNameCn}";
     @Resource
     private ${Domain}Service ${domain}Service;
     @PostMapping("/list")
