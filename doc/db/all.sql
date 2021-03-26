@@ -24,18 +24,19 @@ insert into `chapter` (id,course_id,name) values('000014','000014','大章14');
 # 小节
 DROP TABLE IF EXISTS `section`;
 CREATE TABLE `section` (
-                           `id` char(8) NOT NULL,
-                           `title` varchar(50) NOT NULL,
-                           `course_id` char(8) DEFAULT NULL,
-                           `chapter_id` char(8) DEFAULT NULL,
-                           `video` varchar(200) DEFAULT NULL,
-                           `time` int(11) DEFAULT NULL,
-                           `charge` char(1) DEFAULT NULL,
-                           `sort` int(11) DEFAULT NULL,
-                           `created_at` datetime DEFAULT NULL,
-                           `updated_at` datetime DEFAULT NULL,
+                           `id` char(8) NOT NULL COMMENT 'id',
+                           `title` varchar(50) NOT NULL COMMENT '标题',
+                           `course_id` char(8) DEFAULT NULL COMMENT '课程|course.id',
+                           `chapter_id` char(8) DEFAULT NULL COMMENT '大章|chapter.id',
+                           `video` varchar(200) DEFAULT NULL COMMENT '视频',
+                           `time` int(11) DEFAULT NULL COMMENT '时长|单位秒',
+                           `charge` char(1) DEFAULT NULL COMMENT '收费|C 收费；F 免费',
+                           `sort` int(11) DEFAULT NULL COMMENT '顺序',
+                           `created_at` datetime DEFAULT NULL COMMENT '创建时间',
+                           `updated_at` datetime DEFAULT NULL COMMENT '修改时间',
+                           `vod` char(32) DEFAULT NULL COMMENT 'vod|阿里云vod',
                            PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment='小节';
 
 alter table `section` add column (`vod` char(32) comment 'vod|阿里云vod');
 

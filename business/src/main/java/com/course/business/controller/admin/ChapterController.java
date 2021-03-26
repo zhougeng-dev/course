@@ -1,6 +1,4 @@
 package com.course.business.controller.admin;
-import com.course.business.config.BusinessApplication;
-import com.course.server.config.LogAspect;
 import com.course.server.dto.ChapterDto;
 import com.course.server.dto.PageDto;
 import com.course.server.dto.ResponseDto;
@@ -9,7 +7,6 @@ import com.course.server.util.ValidatorUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
-
 import javax.annotation.Resource;
 
 
