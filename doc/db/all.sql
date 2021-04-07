@@ -51,7 +51,7 @@ CREATE TABLE `test` (
                         `name` varchar(20) NOT NULL,
                         PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
+select * from chapter;
 -- ----------------------------
 -- Records of test
 -- ----------------------------

@@ -3,6 +3,7 @@ import com.course.server.dto.${Domain}Dto;
 import com.course.server.dto.PageDto;
 import com.course.server.dto.ResponseDto;
 import com.course.server.service.${Domain}Service;
+import com.course.server.util.ValidatorUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +28,16 @@ public class ${Domain}Controller {
     @PostMapping("/save")
     private ResponseDto save(@RequestBody ${Domain}Dto ${domain}Dto){
         //保存校验
+        <#list fieldList as field>
+            <#if field.name!="id" && field.nameHump!="createdAt" && field.nameHump!="updatedAt" && field.nameHump!="sort">
+                <#if !field.nullAble>
+        ValidatorUtil.require(${domain}Dto.get${field.nameBigHump}(), "${field.nameCn}");
+                </#if>
+                <#if (field.length > 0)>
+        ValidatorUtil.length(${domain}Dto.get${field.nameBigHump}(), "${field.nameCn}", 1, ${field.length?c});
+                </#if>
+            </#if>
+        </#list>
 
         ResponseDto responseDto = new ResponseDto();
         ${domain}Service.save(${domain}Dto);
