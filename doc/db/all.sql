@@ -1,3 +1,24 @@
+-- 课程
+DROP TABLE IF EXISTS `course`;
+CREATE TABLE `course` (
+                          `id` char(8) NOT NULL DEFAULT '' COMMENT 'id',
+                          `name` varchar(50) NOT NULL COMMENT '名称',
+                          `summary` varchar(2000) DEFAULT NULL COMMENT '概述',
+                          `time` int(11) DEFAULT '0' COMMENT '时长|单位秒',
+                          `price` decimal(8,2) DEFAULT '0.00' COMMENT '价格（元）',
+                          `image` varchar(100) DEFAULT NULL COMMENT '封面',
+                          `level` char(1) DEFAULT NULL COMMENT '级别|枚举[CourseLevelEnum]：ONE("1", "初级"),TWO("2", "中级"),THREE("3", "高级")',
+                          `charge` char(1) DEFAULT NULL COMMENT '收费|枚举[CourseChargeEnum]：CHARGE("C", "收费"),FREE("F", "免费")',
+                          `status` char(1) DEFAULT NULL COMMENT '状态|枚举[CourseStatusEnum]：PUBLISH("P", "发布"),DRAFT("D", "草稿")',
+                          `enroll` int(11) DEFAULT '0' COMMENT '报名数',
+                          `sort` int(11) DEFAULT NULL COMMENT '顺序',
+                          `created_at` datetime DEFAULT NULL COMMENT '创建时间',
+                          `updated_at` datetime DEFAULT NULL COMMENT '修改时间',
+                          `teacher_id` char(8) DEFAULT NULL COMMENT '讲师|teacher.id',
+                          PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='课程';
+insert into course (id, name, summary, time, price, image, level, charge, status, enroll, sort, created_at, updated_at)
+values ('00000001', '测试课程01', '这是一门测试课程', 7200, 19.9, '', 1, 'C', 'P', 100, 0, now(), now());
 -- 大章
 DROP TABLE IF EXISTS `chapter`;
 CREATE TABLE `chapter` (
